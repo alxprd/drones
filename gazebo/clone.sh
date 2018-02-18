@@ -7,28 +7,28 @@ sudo apt-get install build-essential \
                      pkg-config \
                      mercurial \
                      python \
-         			 libfreeimage-dev \
-         			 libtinyxml2-dev \
-         			 uuid-dev \
-         			 libgts-dev \
-         			 libavdevice-dev \
-         			 libavformat-dev \
-         			 libavcodec-dev \
-         			 libswscale-dev \
-         			 libavutil-dev \
-         			 libprotoc-dev \
-             		 libprotobuf-dev \
-             		 protobuf-compiler \
-             		 libboost-system-dev \
+                     libfreeimage-dev \
+                     libtinyxml2-dev \
+                     uuid-dev \
+                     libgts-dev \
+                     libavdevice-dev \
+                     libavformat-dev \
+                     libavcodec-dev \
+                     libswscale-dev \
+                     libavutil-dev \
+                     libprotoc-dev \
+                     libprotobuf-dev \
+                     protobuf-compiler \
+                     libboost-system-dev \
                      libtinyxml-dev \
                      libxml2-utils \
                      ruby-dev \
                      ruby \
                      libzip-dev \
-         			 libjsoncpp-dev \
-         			 libcurl4-openssl-dev \
-         			 libyaml-dev \
-         			 libzmq3-dev
+                     libjsoncpp-dev \
+                     libcurl4-openssl-dev \
+                     libyaml-dev \
+                     libzmq3-dev
 
 cd ../../
 
