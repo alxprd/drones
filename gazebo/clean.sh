@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd ../../
+cd ../../../
 
 cd gazebo/build
 sudo make uninstall

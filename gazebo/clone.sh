@@ -30,6 +30,19 @@ sudo apt-get install build-essential \
                      libyaml-dev \
                      libzmq3-dev
 
+# Gazebo optional dependencies:
+sudo apt-get install libhdf5-serial-dev
+sudo apt-get install xsltproc
+sudo apt-get install ruby-ronn
+
+# Main repository
+sudo apt-add-repository ppa:dartsim
+sudo apt-get update
+sudo apt-get install libdart6-dev
+
+# Optional DART utilities
+sudo apt-get install libdart6-utils-urdf-dev
+
 cd ../../
 
 mkdir ign-cmake

@@ -72,6 +72,9 @@ cd build
 cmake ../
 make -j4
 sudo make install
+#make tests
+echo '/usr/local/lib' | sudo tee /etc/ld.so.conf.d/gazebo.conf
+sudo ldconfig
 cd ../../
 
 cd drones/gazebo
