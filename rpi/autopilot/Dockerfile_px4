@@ -1,0 +1,38 @@
+FROM resin/rpi-raspbian
+
+RUN apt-get update && apt-get -y --no-install-recommends dist-upgrade
+
+RUN apt-get install -y --no-install-recommends wget unzip python python-jinja2 python-empy python-setuptools python-dev
+RUN easy_install pip
+RUN pip install catkin_pkg numpy toml
+
+WORKDIR "/root"
+
+RUN wget https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/ubuntu_sim_common_deps.sh \
+	&& chmod +x ubuntu_sim_common_deps.sh
+
+RUN /bin/bash -c "source ubuntu_sim_common_deps.sh"
+
+#RUN /bin/bash -c "git clone https://github.com/raspberrypi/tools.git ${HOME}/rpi-tools"
+
+# test compiler
+#RUN /bin/bash -c "$HOME/rpi-tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin/arm-linux-gnueabihf-gcc -v"
+
+# permanently update PATH variable by modifying ~/.profile
+#RUN /bin/bash -c "echo 'export PATH=$PATH:$HOME/rpi-tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin' >> ~/.profile"
+
+# update PATH variable only for this session
+#RUN /bin/bash -c "export PATH=$PATH:$HOME/rpi-tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin"
+
+#RUN mkdir px4-firmware
+
+#WORKDIR "/root/px4-firmware"
+WORKDIR "/root/src/Firmware"
+
+#RUN /bin/bash -c "git clone https://github.com/PX4/Firmware.git ."
+
+RUN make posix
+
+RUN apt-get -y autoremove \
+	&& apt-get clean autoclean \
+	&& rm -rf /var/lib/apt/lists/{apt,dpkg,cache,log} /tmp/* /var/tmp/*
